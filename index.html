@@ -306,17 +306,23 @@
         <!-- Contact Section -->
         <section id="contact" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
             <h2 class="text-3xl font-bold mb-6">Contact Me</h2>
-            <form class="space-y-4">
-                <input type="text" placeholder="Name" class="w-full p-3 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400">
-                <input type="email" placeholder="Email" class="w-full p-3 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400">
-                <textarea placeholder="Your Message" class="w-full p-3 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400" rows="4"></textarea>
-                <button class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800">Send Message</button>
+            <form class="space-y-4" novalidate>
+                <!-- <input type="email" placeholder="Email Address" required 
+                    class="w-full p-3 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"> -->
+                <input type="text" placeholder="Object" required 
+                    class="w-full p-3 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <textarea placeholder="Your Message" required rows="4" 
+                    class="w-full p-3 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                <button type="submit" 
+                    class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    Send Message
+                </button>
             </form>
         </section>
 
         <!-- Footer -->
         <footer class="text-center py-6 text-gray-600 dark:text-gray-400">
-            2023 Hamza Taoujouti. All Rights Reserved.
+            2024 Hamza Taoujouti. All Rights Reserved.
         </footer>
     </div>
 

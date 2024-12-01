@@ -18,7 +18,8 @@ const CONFIG = {
     selectors: {
         darkModeToggle: '#darkModeToggle',
         headline: '#typed-headline',
-        flipCard: '.flip-card'
+        flipCard: '.flip-card',
+        contactForm: '#contact form'
     },
     classes: {
         dark: 'dark',
@@ -51,6 +52,7 @@ class PortfolioApp {
         this.initDarkMode();
         this.initTypingEffect();
         this.initFlipCards();
+        this.initContactForm();
     }
 
     // Dark Mode functionality
@@ -146,5 +148,43 @@ class PortfolioApp {
             card.setAttribute('tabindex', '0');
             card.setAttribute('aria-label', 'Flip card to see more details');
         });
+    }
+
+    // Contact form functionality
+    initContactForm() {
+        const contactForm = document.querySelector(CONFIG.selectors.contactForm);
+        if (!contactForm) return;
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const email = contactForm.querySelector('input[type="email"]').value;
+            const subject = contactForm.querySelector('input[type="text"]').value;
+            const message = contactForm.querySelector('textarea').value;
+
+            // Basic validation
+            if (!email || !subject || !message) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            if (!this.isValidEmail(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            // Create mailto link
+            const mailtoLink = `mailto:hamza.taoujouti@esprit.tn?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${email}\n\n${message}`)}`;
+            
+            // Open default mail client
+            window.location.href = mailtoLink;
+
+            // Clear form
+            contactForm.reset();
+        });
+    }
+
+    isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 }
