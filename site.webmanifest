@@ -1,0 +1,17 @@
+{
+    "name": "Hamza Taoujouti - DevOps Engineer",
+    "short_name": "Hamza T.",
+    "description": "Personal portfolio of Hamza Taoujouti, DevOps Engineer",
+    "icons": [
+        {
+            "src": "favicon.svg",
+            "sizes": "512x512",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ],
+    "theme_color": "#3B82F6",
+    "background_color": "#FFFFFF",
+    "display": "standalone",
+    "start_url": "/"
+}
