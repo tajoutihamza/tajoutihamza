@@ -1,43 +1,70 @@
-/* Custom styles to complement Tailwind */
+/* CSS Custom Properties */
+:root {
+    /* Colors */
+    --color-primary-light: #3B82F6;
+    --color-primary-dark: #60A5FA;
+    --color-bg-light: #ffffff;
+    --color-bg-dark: #1f2937;
+    --color-text-light: #111827;
+    --color-text-dark: #f3f4f6;
+    
+    /* Timing */
+    --transition-fast: 0.2s;
+    --transition-normal: 0.3s;
+    --transition-slow: 0.6s;
+    
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    
+    /* Z-index layers */
+    --z-base: 1;
+    --z-above: 2;
+    --z-top: 3;
+}
+
+/* Base Styles */
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: var(--space-lg);
 }
 
 body {
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Dark mode transitions */
-* {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+/* Transitions */
+.transition-base {
+    transition: 
+        background-color var(--transition-normal) ease,
+        color var(--transition-normal) ease,
+        border-color var(--transition-normal) ease,
+        transform var(--transition-normal) ease,
+        opacity var(--transition-normal) ease;
 }
 
-/* Dark mode specific styles */
-@media (prefers-color-scheme: dark) {
-    h1, h2, h3, h4, h5, h6 {
-        color: #fff;
-    }
+/* Interactive Elements */
+a, 
+button {
+    transition: all var(--transition-normal) ease;
 }
 
-[data-theme='dark'] h1,
-[data-theme='dark'] h2,
-[data-theme='dark'] h3,
-[data-theme='dark'] h4,
-[data-theme='dark'] h5,
-[data-theme='dark'] h6 {
-    color: #fff;
+a:focus,
+button:focus {
+    outline: 2px solid var(--color-primary-light);
+    outline-offset: 2px;
 }
 
-/* Smooth transitions for hover effects */
-a, button {
-    transition: all 0.3s ease;
-}
-
-/* Flip Card Styles */
+/* Flip Card Animation */
 .flip-card {
     perspective: 1000px;
     cursor: pointer;
     background-color: transparent;
+    height: 100%;
 }
 
 .flip-card-inner {
@@ -45,15 +72,18 @@ a, button {
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.6s;
+    transition: transform var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
+    will-change: transform;
 }
 
-.flip-card:hover .flip-card-inner {
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
     transform: rotateY(180deg);
 }
 
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -63,22 +93,56 @@ a, button {
 }
 
 .flip-card-front {
-    z-index: 2;
+    z-index: var(--z-above);
 }
 
 .flip-card-back {
     transform: rotateY(180deg);
-    z-index: 1;
+    z-index: var(--z-base);
 }
 
-/* Responsive adjustments */
+/* Responsive Layout */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
         text-align: center;
+        gap: var(--space-md);
     }
     
-    nav div {
-        margin-top: 1rem;
+    .tech-stack {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-md);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .flip-card-inner {
+        transform: none !important;
+    }
+    
+    .flip-card-back {
+        display: none !important;
+    }
+    
+    a[href]::after {
+        content: " (" attr(href) ")";
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .flip-card:hover .flip-card-inner {
+        transform: none;
     }
 }

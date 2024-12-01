@@ -1,50 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamza Taoujouti - Personal Website</title>
+    <meta name="description" content="Hamza Taoujouti - DevOps Engineer Portfolio">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1f2937" media="(prefers-color-scheme: dark)">
+    <title>Hamza Taoujouti - DevOps Engineer</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+
+    <!-- Stylesheets -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
-                extend: {}
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#3B82F6',
+                            dark: '#60A5FA'
+                        }
+                    }
+                }
             }
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-100 text-gray-900 font-sans dark:bg-gray-900">
+<body class="bg-gray-100 text-gray-900 font-sans dark:bg-gray-900 dark:text-gray-100 transition-colors">
     <div class="container mx-auto px-4 max-w-6xl">
         <!-- Navigation -->
-        <nav class="flex justify-between items-center py-6">
-            <div class="text-2xl font-bold dark:text-white">Hamza Taoujouti</div>
+        <nav class="flex justify-between items-center py-6" role="navigation">
+            <div class="text-2xl font-bold">Hamza Taoujouti</div>
             <div class="flex items-center space-x-4">
-                <button id="darkModeToggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                <button id="darkModeToggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Toggle dark mode">
                     <i class="fas fa-moon text-gray-800 dark:text-white"></i>
                 </button>
-                <div class="space-x-4">
-                    <a href="#about" class="hover:text-blue-600 dark:text-white dark:hover:text-blue-400">About</a>
-                    <a href="#experience" class="hover:text-blue-600 dark:text-white dark:hover:text-blue-400">Experience</a>
-                    <a href="#projects" class="hover:text-blue-600 dark:text-white dark:hover:text-blue-400">Projects</a>
-                    <a href="#contact" class="hover:text-blue-600 dark:text-white dark:hover:text-blue-400">Contact</a>
-                </div>
+                <nav class="space-x-4">
+                    <a href="#about" class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">About</a>
+                    <a href="#experience" class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">Experience</a>
+                    <a href="#projects" class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">Projects</a>
+                    <a href="#contact" class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">Contact</a>
+                </nav>
             </div>
         </nav>
 
         <!-- Hero Section -->
-        <header class="text-center py-20 mb-12 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-900">
-            <img src="images/profile.png" alt="Hamza Taoujouti" class="mx-auto w-48 h-48 rounded-full mb-6 object-cover border-4 border-white dark:border-gray-700">
-            <h1 class="text-4xl font-bold mb-4 dark:text-white">Hamza Taoujouti</h1>
-            <p class="text-xl text-gray-600 dark:text-gray-300 mb-4" id="typed-headline"></p>
+        <header class="text-center py-20 mb-12 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-900 rounded-lg">
+            <img src="images/profile.png" alt="Hamza Taoujouti" class="mx-auto w-48 h-48 rounded-full mb-6 object-cover border-4 border-white dark:border-gray-700 shadow-lg" width="192" height="192" loading="eager">
+            <h1 class="text-4xl font-bold mb-4">Hamza Taoujouti</h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 mb-4" id="typed-headline" aria-live="polite"></p>
             <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">Specializing in Cloud Infrastructure, CI/CD Automation, and DevOps Best Practices</p>
             
             <!-- Tech Stack Icons -->
-            <div class="flex justify-center gap-6 mb-8">
+            <div class="flex justify-center gap-6 mb-8" aria-label="Technology Stack">
                 <i class="fab fa-docker text-3xl hover:opacity-80 transition-opacity" style="color: #2496ED;" title="Docker"></i>
-                <img src="https://raw.githubusercontent.com/kubernetes/kubernetes/master/logo/logo.svg" alt="Kubernetes" class="w-8 h-8 inline-block hover:opacity-80 transition-opacity" title="Kubernetes">
+                <img src="https://raw.githubusercontent.com/kubernetes/kubernetes/master/logo/logo.svg" alt="Kubernetes" class="w-8 h-8 inline-block hover:opacity-80 transition-opacity" title="Kubernetes" width="32" height="32">
                 <i class="fab fa-redhat text-3xl hover:opacity-80 transition-opacity" style="color: #EE0000;" title="Red Hat"></i>
                 <i class="fab fa-google text-3xl hover:opacity-80 transition-opacity" style="color: #4285F4;" title="Google Cloud"></i>
                 <i class="fab fa-gitlab text-3xl hover:opacity-80 transition-opacity" style="color: #FC6D26;" title="GitLab"></i>
@@ -53,16 +70,16 @@
             </div>
 
             <div class="flex justify-center space-x-4">
-                <a href="https://www.linkedin.com/in/hamza-taoujouti-27b703187" target="_blank" class="text-2xl hover:text-blue-600 dark:text-white dark:hover:text-blue-400">
+                <a href="https://www.linkedin.com/in/hamza-taoujouti-27b703187" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-primary-light dark:hover:text-primary-dark transition-colors" aria-label="LinkedIn Profile">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://github.com/tajoutihamza" target="_blank" class="text-2xl hover:text-blue-600 dark:text-white dark:hover:text-blue-400">
+                <a href="https://github.com/tajoutihamza" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-primary-light dark:hover:text-primary-dark transition-colors" aria-label="GitHub Profile">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://www.credly.com/users/hamza-taoujouti.39b33a11" target="_blank" class="text-2xl hover:text-blue-600 dark:text-white dark:hover:text-blue-400">
+                <a href="https://www.credly.com/users/hamza-taoujouti.39b33a11" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-primary-light dark:hover:text-primary-dark transition-colors" aria-label="Certifications">
                     <i class="fas fa-certificate"></i>
                 </a>
-                <a href="mailto:hamza.taoujouti@esprit.tn" class="text-2xl hover:text-blue-600 dark:text-white dark:hover:text-blue-400">
+                <a href="mailto:hamza.taoujouti@esprit.tn" class="text-2xl hover:text-primary-light dark:hover:text-primary-dark transition-colors" aria-label="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
@@ -70,7 +87,7 @@
 
         <!-- About Section -->
         <section id="about" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 mb-12">
-            <h2 class="text-3xl font-bold mb-6 dark:text-white">About Me</h2>
+            <h2 class="text-3xl font-bold mb-6">About Me</h2>
             <p class="text-gray-700 dark:text-gray-300">
                 I am a certified Google Cloud Associate Engineer and DevOps professional with extensive experience in cloud infrastructure, CI/CD pipelines, and .NET development. Currently working at Sofrecom Tunisie (Orange Group), I specialize in implementing and maintaining robust DevOps practices to streamline development and deployment processes. My expertise in cloud technologies, particularly Google Cloud Platform, allows me to design and implement scalable, efficient infrastructure solutions.
             </p>
@@ -82,13 +99,13 @@
 
         <!-- Experience Section -->
         <section id="experience" class="mb-12">
-            <h2 class="text-3xl font-bold mb-6 dark:text-white">Professional Experience</h2>
+            <h2 class="text-3xl font-bold mb-6">Professional Experience</h2>
             <div class="space-y-6">
                 <!-- Current Role -->
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-transform hover:scale-102">
                     <div class="flex items-center justify-between mb-4">
                         <div>
-                            <h3 class="text-xl font-semibold dark:text-white">DevOps Engineer</h3>
+                            <h3 class="text-xl font-semibold">DevOps Engineer</h3>
                             <p class="text-gray-600 dark:text-gray-400">Sofrecom Tunisie (Orange Group)</p>
                             <p class="text-gray-500 dark:text-gray-500">September 2022 - Present</p>
                         </div>
@@ -101,7 +118,7 @@
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-transform hover:scale-102">
                     <div class="flex items-center justify-between mb-4">
                         <div>
-                            <h3 class="text-xl font-semibold dark:text-white">DevOps Engineer & .NET Developer</h3>
+                            <h3 class="text-xl font-semibold">DevOps Engineer & .NET Developer</h3>
                             <p class="text-gray-600 dark:text-gray-400">Integration Object</p>
                             <p class="text-gray-500 dark:text-gray-500">August 2021 - September 2022</p>
                         </div>
@@ -114,7 +131,7 @@
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-transform hover:scale-102">
                     <div class="flex items-center justify-between mb-4">
                         <div>
-                            <h3 class="text-xl font-semibold dark:text-white">End of Study Internship</h3>
+                            <h3 class="text-xl font-semibold">End of Study Internship</h3>
                             <p class="text-gray-600 dark:text-gray-400">Integration Object</p>
                             <p class="text-gray-500 dark:text-gray-500">February 2021 - June 2021</p>
                         </div>
@@ -126,7 +143,7 @@
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-transform hover:scale-102">
                     <div class="flex items-center justify-between mb-4">
                         <div>
-                            <h3 class="text-xl font-semibold dark:text-white">Summer Internship</h3>
+                            <h3 class="text-xl font-semibold">Summer Internship</h3>
                             <p class="text-gray-600 dark:text-gray-400">Integration Object</p>
                             <p class="text-gray-500 dark:text-gray-500">August 2020 - September 2020</p>
                         </div>
@@ -139,7 +156,7 @@
 
         <!-- Projects Section -->
         <section id="projects" class="mb-12">
-            <h2 class="text-3xl font-bold mb-6 dark:text-white">Projects</h2>
+            <h2 class="text-3xl font-bold mb-6">Projects</h2>
             <div class="grid md:grid-cols-2 gap-6">
                 <!-- Project Card 1 -->
                 <div class="flip-card h-64">
@@ -149,7 +166,7 @@
                             <div class="bg-blue-100 dark:bg-blue-900 p-6 rounded-full mb-4">
                                 <i class="fas fa-cloud text-blue-600 dark:text-blue-400 text-4xl"></i>
                             </div>
-                            <h3 class="text-xl font-semibold dark:text-white text-center mb-4">Cloud Infrastructure Automation</h3>
+                            <h3 class="text-xl font-semibold text-center mb-4">Cloud Infrastructure Automation</h3>
                             <div class="flex flex-wrap gap-2 justify-center">
                                 <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-full text-sm">GCP</span>
                                 <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-full text-sm">Terraform</span>
@@ -158,7 +175,7 @@
                         </div>
                         <!-- Back -->
                         <div class="flip-card-back bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col justify-center">
-                            <h3 class="text-xl font-semibold mb-4 dark:text-white">Cloud Infrastructure Automation</h3>
+                            <h3 class="text-xl font-semibold mb-4">Cloud Infrastructure Automation</h3>
                             <p class="text-gray-700 dark:text-gray-300">Implemented infrastructure as code using Terraform and GCP, achieving 90% automation in deployment processes. Reduced deployment time by 60% and improved reliability.</p>
                             <div class="mt-4">
                                 <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">Learn More →</a>
@@ -175,7 +192,7 @@
                             <div class="bg-green-100 dark:bg-green-900 p-6 rounded-full mb-4">
                                 <i class="fas fa-code-branch text-green-600 dark:text-green-400 text-4xl"></i>
                             </div>
-                            <h3 class="text-xl font-semibold dark:text-white text-center mb-4">DevOps Pipeline Optimization</h3>
+                            <h3 class="text-xl font-semibold text-center mb-4">DevOps Pipeline Optimization</h3>
                             <div class="flex flex-wrap gap-2 justify-center">
                                 <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 rounded-full text-sm">Jenkins</span>
                                 <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 rounded-full text-sm">Docker</span>
@@ -184,7 +201,7 @@
                         </div>
                         <!-- Back -->
                         <div class="flip-card-back bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col justify-center">
-                            <h3 class="text-xl font-semibold mb-4 dark:text-white">DevOps Pipeline Optimization</h3>
+                            <h3 class="text-xl font-semibold mb-4">DevOps Pipeline Optimization</h3>
                             <p class="text-gray-700 dark:text-gray-300">Designed and implemented efficient CI/CD pipelines, reducing deployment time by 60% and improving code quality.</p>
                             <div class="mt-4">
                                 <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">Learn More →</a>
@@ -197,10 +214,10 @@
 
         <!-- Skills Section -->
         <section class="mb-12">
-            <h2 class="text-3xl font-bold mb-6 dark:text-white">Technical Skills</h2>
+            <h2 class="text-3xl font-bold mb-6">Technical Skills</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-                    <h3 class="text-lg font-semibold mb-4 dark:text-white flex items-center">
+                    <h3 class="text-lg font-semibold mb-4 flex items-center">
                         <i class="fas fa-cloud mr-3 text-blue-500"></i>
                         Cloud & Infrastructure
                     </h3>
@@ -227,7 +244,7 @@
                 </div>
                 
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-                    <h3 class="text-lg font-semibold mb-4 dark:text-white flex items-center">
+                    <h3 class="text-lg font-semibold mb-4 flex items-center">
                         <i class="fas fa-code-branch mr-3 text-green-500"></i>
                         DevOps & CI/CD
                     </h3>
@@ -254,7 +271,7 @@
                 </div>
 
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-                    <h3 class="text-lg font-semibold mb-4 dark:text-white flex items-center">
+                    <h3 class="text-lg font-semibold mb-4 flex items-center">
                         <i class="fas fa-code mr-3 text-purple-500"></i>
                         Development
                     </h3>
@@ -284,7 +301,7 @@
 
         <!-- Contact Section -->
         <section id="contact" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
-            <h2 class="text-3xl font-bold mb-6 dark:text-white">Contact Me</h2>
+            <h2 class="text-3xl font-bold mb-6">Contact Me</h2>
             <form class="space-y-4">
                 <input type="text" placeholder="Name" class="w-full p-3 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400">
                 <input type="email" placeholder="Email" class="w-full p-3 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400">
@@ -299,6 +316,6 @@
         </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
