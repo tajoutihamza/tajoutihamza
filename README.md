@@ -4,9 +4,11 @@
   
   ![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&duration=3000&pause=1000&color=2F81F7&center=true&vCenter=true&width=435&lines=DevOps+Engineer;Cloud+Infrastructure+Expert;Google+Cloud+Certified;Automation+Enthusiast)
 
-  [![Website](https://img.shields.io/badge/Portfolio-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://github.com/tajoutihamza/personal-website)
+  [![Live Site](https://img.shields.io/badge/Live_Site-Portfolio-4CAF50?style=for-the-badge&logo=github&logoColor=white)](https://tajoutihamza.github.io/tajoutihamza/)
   [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hamza-taoujouti-27b703187)
   [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/tajoutihamza)
+  
+  ![Deploy Status](https://img.shields.io/github/deployments/tajoutihamza/tajoutihamza/github-pages?label=Deploy&style=for-the-badge)
   
 </div>
 
