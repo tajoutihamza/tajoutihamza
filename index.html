@@ -39,8 +39,14 @@
 </head>
 <body class="bg-gray-100 text-gray-900 font-sans dark:bg-gray-900 dark:text-gray-100 transition-colors">
     <div class="container mx-auto px-4 max-w-6xl">
-        <!-- Navigation -->
-        <nav class="flex justify-between items-center py-6" role="navigation">
+        <!-- Language Toggle -->
+        <div class="flex justify-end py-4">
+            <button id="lang-en" class="px-4 py-2 font-bold text-blue-600 dark:text-blue-400" onclick="switchLang('en')">EN</button>
+            <button id="lang-fr" class="px-4 py-2 font-bold text-gray-600 dark:text-gray-400" onclick="switchLang('fr')">FR</button>
+        </div>
+
+        <!-- Navigation EN -->
+        <nav id="nav-en" class="flex justify-between items-center py-6" role="navigation">
             <div class="text-2xl font-bold">Hamza Taoujouti</div>
             <div class="flex items-center space-x-4">
                 <button id="darkModeToggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Toggle dark mode">
@@ -50,6 +56,21 @@
                     <a href="#about" class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">About</a>
                     <a href="#experience" class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">Experience</a>
                     <a href="#projects" class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">Projects</a>
+                    <a href="#contact" class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">Contact</a>
+                </nav>
+            </div>
+        </nav>
+        <!-- Navigation FR -->
+        <nav id="nav-fr" class="hidden flex justify-between items-center py-6" role="navigation">
+            <div class="text-2xl font-bold">Hamza Taoujouti</div>
+            <div class="flex items-center space-x-4">
+                <button id="darkModeToggleFr" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Basculer le mode sombre">
+                    <i class="fas fa-moon text-gray-800 dark:text-white"></i>
+                </button>
+                <nav class="space-x-4">
+                    <a href="#about" class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">À propos</a>
+                    <a href="#experience" class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">Expérience</a>
+                    <a href="#projects" class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">Projets</a>
                     <a href="#contact" class="hover:text-primary-light dark:hover:text-primary-dark transition-colors">Contact</a>
                 </nav>
             </div>
@@ -89,236 +110,443 @@
             </div>
         </header>
 
-        <!-- About Section -->
-        <section id="about" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 mb-12">
-            <h2 class="text-3xl font-bold mb-6">About Me</h2>
-            <p class="text-gray-700 dark:text-gray-300">
-                I am a certified Google Cloud Associate Engineer and DevOps professional with extensive experience in cloud infrastructure, CI/CD pipelines, and .NET development. Currently working at Sofrecom Tunisie (Orange Group), I specialize in implementing and maintaining robust DevOps practices to streamline development and deployment processes. My expertise in cloud technologies, particularly Google Cloud Platform, allows me to design and implement scalable, efficient infrastructure solutions.
-            </p>
-            <div class="mt-4 flex items-center">
-                <img src="https://images.credly.com/size/110x110/images/08096465-cbfc-4c3e-93e5-93c5aa61f23e/image.png" alt="Google Cloud Certified" class="h-16 mr-4">
-                <span class="text-gray-700 dark:text-gray-300">Google Cloud Certified - Associate Cloud Engineer</span>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="mb-12">
-            <h2 class="text-3xl font-bold mb-6">Professional Experience</h2>
-            <div class="space-y-6">
-                <!-- Current Role -->
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-transform hover:scale-102">
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <h3 class="text-xl font-semibold">DevOps Engineer</h3>
-                            <p class="text-gray-600 dark:text-gray-400">Sofrecom Tunisie (Orange Group)</p>
-                            <p class="text-gray-500 dark:text-gray-500">September 2022 - Present</p>
-                        </div>
-                        <img src="images/sofrecom.png" alt="Sofrecom Logo" class="w-16 h-16 object-contain" onerror="this.style.display='none'">
-                    </div>
-                    <p class="mt-2 text-gray-700 dark:text-gray-300">Leading DevOps initiatives and implementing cloud infrastructure solutions as part of the Orange Group ecosystem.</p>
+        <!-- ENGLISH CONTENT -->
+        <div id="content-en">
+            <!-- About Section -->
+            <section id="about" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 mb-12">
+                <h2 class="text-3xl font-bold mb-6">About Me</h2>
+                <p class="text-gray-700 dark:text-gray-300">
+                    I am a self-motivated DevOps/SRE engineer fluent in Arabic, English, and French. My career goal is to grow into a senior or team leader position, mentoring others and shaping strategic decisions. I thrive in environments that encourage continuous learning, technical growth, and solving meaningful problems. I value clear communication, teamwork, and enjoy roles where I can support others and take initiative. I am passionate about contributing to projects that have a positive impact.
+                </p>
+                <div class="mt-4 flex items-center">
+                    <img src="https://images.credly.com/size/110x110/images/08096465-cbfc-4c3e-93e5-93c5aa61f23e/image.png" alt="Google Cloud Certified" class="h-16 mr-4">
+                    <span class="text-gray-700 dark:text-gray-300">Google Cloud Certified - Associate Cloud Engineer</span>
                 </div>
-
-                <!-- Previous Role -->
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-transform hover:scale-102">
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <h3 class="text-xl font-semibold">DevOps Engineer & .NET Developer</h3>
-                            <p class="text-gray-600 dark:text-gray-400">Integration Object</p>
-                            <p class="text-gray-500 dark:text-gray-500">August 2021 - September 2022</p>
-                        </div>
-                        <img src="images/integration-object.png" alt="Integration Object Logo" class="w-16 h-16 object-contain" onerror="this.style.display='none'">
-                    </div>
-                    <p class="mt-2 text-gray-700 dark:text-gray-300">Dual role focusing on DevOps practices and .NET development, contributing to both infrastructure and application development.</p>
+                <div class="mt-4 flex items-center">
+                    <img src="https://images.credly.com/size/110x110/images/572de0ba-2c59-4816-a59d-b0e1687e45ee/image.png" alt="Red Hat Certified System Administrator" class="h-16 mr-4">
+                    <span class="text-gray-700 dark:text-gray-300">Red Hat Certified System Administrator (RHCSA)</span>
                 </div>
+            </section>
 
-                <!-- Internships -->
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-transform hover:scale-102">
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <h3 class="text-xl font-semibold">End of Study Internship</h3>
-                            <p class="text-gray-600 dark:text-gray-400">Integration Object</p>
-                            <p class="text-gray-500 dark:text-gray-500">February 2021 - June 2021</p>
-                        </div>
-                        <img src="images/integration-object.png" alt="Integration Object Logo" class="w-16 h-16 object-contain" onerror="this.style.display='none'">
-                    </div>
-                    <p class="mt-2 text-gray-700 dark:text-gray-300">Completed final academic project, gaining hands-on experience in software development and DevOps practices.</p>
-                </div>
-
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-transform hover:scale-102">
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <h3 class="text-xl font-semibold">Summer Internship</h3>
-                            <p class="text-gray-600 dark:text-gray-400">Integration Object</p>
-                            <p class="text-gray-500 dark:text-gray-500">August 2020 - September 2020</p>
-                        </div>
-                        <img src="images/integration-object.png" alt="Integration Object Logo" class="w-16 h-16 object-contain" onerror="this.style.display='none'">
-                    </div>
-                    <p class="mt-2 text-gray-700 dark:text-gray-300">Gained initial exposure to professional software development environment and best practices.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="mb-12">
-            <h2 class="text-3xl font-bold mb-6">Projects</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- Project Card 1 -->
-                <div class="flip-card h-64">
-                    <div class="flip-card-inner">
-                        <!-- Front -->
-                        <div class="flip-card-front bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col items-center justify-center">
-                            <div class="bg-blue-100 dark:bg-blue-900 p-6 rounded-full mb-4">
-                                <i class="fas fa-cloud text-blue-600 dark:text-blue-400 text-4xl"></i>
+            <!-- Experience Section -->
+            <section id="experience" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6">Professional Experience</h2>
+                <div class="space-y-6">
+                    <!-- Current Role -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-semibold">DevOps Engineer</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Sofrecom Tunisie (Orange Group)</p>
+                                <p class="text-gray-500 dark:text-gray-500">September 2022 - Present</p>
                             </div>
-                            <h3 class="text-xl font-semibold text-center mb-4">Cloud Infrastructure Automation</h3>
-                            <div class="flex flex-wrap gap-2 justify-center">
-                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-full text-sm">GCP</span>
-                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-full text-sm">Terraform</span>
-                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-full text-sm">CI/CD</span>
-                            </div>
+                            <img src="images/sofrecom.png" alt="Sofrecom Logo" class="w-16 h-16 object-contain" onerror="this.style.display='none'">
                         </div>
-                        <!-- Back -->
-                        <div class="flip-card-back bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col justify-center">
-                            <h3 class="text-xl font-semibold mb-4">Cloud Infrastructure Automation</h3>
-                            <p class="text-gray-700 dark:text-gray-300">Implemented infrastructure as code using Terraform and GCP, achieving 90% automation in deployment processes. Reduced deployment time by 60% and improved reliability.</p>
-                            <div class="mt-4">
-                                <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">Learn More →</a>
+                        <ul class="mt-2 text-gray-700 dark:text-gray-300 list-disc list-inside space-y-2">
+                            <li>Engineered a unified CI/CD workflow to synchronize application versions across both legacy VM and modern Kubernetes platforms, resolving critical deployment inconsistencies.</li>
+                            <li>Architected high-availability data solutions, implementing MongoDB bi-site replication to minimize downtime and integrating a Redis cluster that slashed database queries by 50%.</li>
+                            <li>Authored Ansible playbooks to automate server provisioning—including firewall, user, and network configuration—which accelerated new VM setup by 80%.</li>
+                            <li>Managed secure, offline Kubernetes environments and deployed custom supervision solutions to guarantee high service availability.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Previous Role -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-semibold">Software Engineer</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Integration Object</p>
+                                <p class="text-gray-500 dark:text-gray-500">August 2021 - September 2022</p>
                             </div>
+                            <img src="images/integration-object.png" alt="Integration Object Logo" class="w-16 h-16 object-contain" onerror="this.style.display='none'">
                         </div>
+                        <ul class="mt-2 text-gray-700 dark:text-gray-300 list-disc list-inside space-y-2">
+                            <li>Spearheaded the automation of the software release cycle by designing and implementing Azure DevOps CI/CD pipelines from scratch, transforming a manual, day-long process into a fully automated, on-demand build system.</li>
+                            <li>Played a key role in achieving ISO 27001 certification by executing critical security controls, including network segmentation with VLANs, firewall configuration, and vulnerability remediation based on Nessus scans.</li>
+                            <li>Developed and maintained C# applications, applying SOLID principles for robust and scalable software.</li>
+                            <li>Led the migration from TFS to Azure Repos to modernize the version control system.</li>
+                        </ul>
                     </div>
                 </div>
+            </section>
 
-                <!-- Project Card 2 -->
-                <div class="flip-card h-64">
-                    <div class="flip-card-inner">
-                        <!-- Front -->
-                        <div class="flip-card-front bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col items-center justify-center">
-                            <div class="bg-green-100 dark:bg-green-900 p-6 rounded-full mb-4">
-                                <i class="fas fa-code-branch text-green-600 dark:text-green-400 text-4xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold text-center mb-4">DevOps Pipeline Optimization</h3>
-                            <div class="flex flex-wrap gap-2 justify-center">
-                                <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 rounded-full text-sm">Jenkins</span>
-                                <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 rounded-full text-sm">Docker</span>
-                                <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 rounded-full text-sm">Kubernetes</span>
-                            </div>
+            <!-- Projects Section -->
+            <section id="projects" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6">Personal Projects</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Project Card 1 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col">
+                        <h3 class="text-xl font-semibold mb-2">End-to-End Kubernetes Deployment</h3>
+                        <p class="text-gray-700 dark:text-gray-300 flex-grow">Created a zero-touch infrastructure-as-code solution to bootstrap a complete Kubernetes cluster on-demand. This project automated the entire environment setup for hosting a containerized e-commerce application, eliminating all manual configuration.</p>
+                        <div class="mt-4">
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Terraform</span>
+                            <span class="inline-block bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-200">Ansible</span>
+                            <span class="inline-block bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-800">Azure DevOps</span>
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Kubernetes</span>
                         </div>
-                        <!-- Back -->
-                        <div class="flip-card-back bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col justify-center">
-                            <h3 class="text-xl font-semibold mb-4">DevOps Pipeline Optimization</h3>
-                            <p class="text-gray-700 dark:text-gray-300">Designed and implemented efficient CI/CD pipelines, reducing deployment time by 60% and improving code quality.</p>
-                            <div class="mt-4">
-                                <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">Learn More →</a>
-                            </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col">
+                        <h3 class="text-xl font-semibold mb-2">C# Microservices Application</h3>
+                        <p class="text-gray-700 dark:text-gray-300 flex-grow">Developed two microservices using .NET that communicate via gRPC, REST, and RabbitMQ. The application was containerized with Docker and deployed to a Kubernetes cluster, demonstrating a complete microservices lifecycle.</p>
+                        <div class="mt-4">
+                            <span class="inline-block bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-800">C# / .NET</span>
+                            <span class="inline-block bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-800">gRPC</span>
+                            <span class="inline-block bg-orange-100 text-orange-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-orange-200 dark:text-orange-800">RabbitMQ</span>
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Docker</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col">
+                        <h3 class="text-xl font-semibold mb-2">Full-Stack E-commerce Platform</h3>
+                        <p class="text-gray-700 dark:text-gray-300 flex-grow">Built an online restaurant platform with features for ordering, recipe browsing, and calorie tracking via external APIs. The backend was developed with Node.js and the frontend with Angular, including payment integration using Stripe.</p>
+                        <div class="mt-4">
+                            <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-800">Node.js</span>
+                            <span class="inline-block bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-800">Angular</span>
+                            <span class="inline-block bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-indigo-200 dark:text-indigo-800">Stripe API</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col">
+                        <h3 class="text-xl font-semibold mb-2">Machine Learning & Deep Learning</h3>
+                        <p class="text-gray-700 dark:text-gray-300 flex-grow">Developed multiple models, including an income predictor, a consumer spending forecaster, and a yoga pose classifier using simple, complex, and pre-trained neural networks. Explored multi-threading in Python for image processing.</p>
+                        <div class="mt-4">
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-800">Python</span>
+                            <span class="inline-block bg-pink-100 text-pink-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-pink-200 dark:text-pink-800">Scikit-learn</span>
+                            <span class="inline-block bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-200">TensorFlow</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Skills Section -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold mb-6">Technical Skills</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-                    <h3 class="text-lg font-semibold mb-4 flex items-center">
-                        <i class="fas fa-cloud mr-3 text-blue-500"></i>
-                        Cloud & Infrastructure
-                    </h3>
-                    <div class="space-y-3">
+            <!-- Skills Section -->
+            <section id="skills" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6">Technical Skills</h2>
+                <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-700 dark:text-gray-300">Google Cloud Platform</span>
-                                <span class="text-gray-600 dark:text-gray-400">95%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                <div class="bg-blue-500 h-2 rounded-full" style="width: 95%"></div>
-                            </div>
+                            <h3 class="font-semibold text-lg mb-2">Cloud & DevOps</h3>
+                            <ul class="space-y-1 text-gray-700 dark:text-gray-300">
+                                <li>GCP, Azure</li>
+                                <li>Docker, Kubernetes, OpenShift</li>
+                                <li>GitLab CI, Jenkins</li>
+                                <li>Terraform, Ansible</li>
+                                <li>Prometheus, Grafana, ELK</li>
+                            </ul>
                         </div>
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-700 dark:text-gray-300">Terraform</span>
-                                <span class="text-gray-600 dark:text-gray-400">90%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
-                            </div>
+                            <h3 class="font-semibold text-lg mb-2">Development</h3>
+                            <ul class="space-y-1 text-gray-700 dark:text-gray-300">
+                                <li>C#, .NET, SOLID</li>
+                                <li>Python, YAML</li>
+                                <li>SQL, NoSQL</li>
+                                <li>REST APIs</li>
+                                <li>Shell Scripting</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">Systems & Security</h3>
+                            <ul class="space-y-1 text-gray-700 dark:text-gray-300">
+                                <li>RHEL, Linux Admin</li>
+                                <li>vSphere, VMware</li>
+                                <li>Fortinet, Cisco</li>
+                                <li>Nessus, OWASP ZAP</li>
+                                <li>Network Architecture</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">Professional</h3>
+                            <ul class="space-y-1 text-gray-700 dark:text-gray-300">
+                                <li>Agile, Scrum</li>
+                                <li>Public Speaking</li>
+                                <li>Time Management</li>
+                                <li>Team Leadership</li>
+                                <li>Emotional Intelligence</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-                    <h3 class="text-lg font-semibold mb-4 flex items-center">
-                        <i class="fas fa-code-branch mr-3 text-green-500"></i>
-                        DevOps & CI/CD
-                    </h3>
-                    <div class="space-y-3">
+            </section>
+
+            <!-- Certifications Section -->
+            <section id="certifications" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6">Certifications</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex items-center">
+                        <img src="https://images.credly.com/size/110x110/images/08096465-cbfc-4c3e-93e5-93c5aa61f23e/image.png" alt="Google Cloud Certified" class="h-16 mr-4">
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-700 dark:text-gray-300">Docker/Kubernetes</span>
-                                <span class="text-gray-600 dark:text-gray-400">92%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                <div class="bg-green-500 h-2 rounded-full" style="width: 92%"></div>
-                            </div>
+                            <h3 class="font-semibold">Google Cloud Certified - Associate Cloud Engineer</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Google</p>
                         </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex items-center">
+                        <img src="https://images.credly.com/size/110x110/images/572de0ba-2c59-4816-a59d-b0e1687e45ee/image.png" alt="Red Hat Certified System Administrator" class="h-16 mr-4">
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-700 dark:text-gray-300">Jenkins/GitLab CI</span>
-                                <span class="text-gray-600 dark:text-gray-400">88%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                <div class="bg-green-500 h-2 rounded-full" style="width: 88%"></div>
-                            </div>
+                            <h3 class="font-semibold">Red Hat Certified System Administrator (RHCSA)</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Red Hat</p>
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-                    <h3 class="text-lg font-semibold mb-4 flex items-center">
-                        <i class="fas fa-code mr-3 text-purple-500"></i>
-                        Development
-                    </h3>
-                    <div class="space-y-3">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-700 dark:text-gray-300">.NET Development</span>
-                                <span class="text-gray-600 dark:text-gray-400">85%</span>
+            <!-- Hobbies Section -->
+            <section id="hobbies" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 mb-12">
+                <h2 class="text-3xl font-bold mb-6">Hobbies</h2>
+                <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
+                    <li>Reading</li>
+                    <li>Movies</li>
+                    <li>Spending time with friends and family</li>
+                </ul>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold mb-6">Contact Me</h2>
+                <div class="mb-4 text-lg text-gray-700 dark:text-gray-300">
+                    <div><i class="fas fa-envelope mr-2"></i> hamza.taoujouti@esprit.tn</div>
+                    <div><i class="fas fa-phone mr-2"></i> +21656228030</div>
+                </div>
+                <form class="space-y-4" novalidate>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2">Your Email</label>
+                        <input type="email" id="email" class="w-full px-3 py-2 border rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary-dark" required>
+                    </div>
+                    <input type="text" placeholder="Subject" required 
+                        class="w-full p-3 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <textarea placeholder="Your Message" required rows="4" 
+                        class="w-full p-3 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                    <button type="submit" 
+                        class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                        Send Message
+                    </button>
+                </form>
+                <a href="cv.pdf" download class="inline-block mt-6 bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    <i class="fas fa-download mr-2"></i>Download CV
+                </a>
+            </section>
+        </div>
+
+        <!-- FRENCH CONTENT -->
+        <div id="content-fr" class="hidden">
+            <!-- About Section -->
+            <section id="about" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 mb-12">
+                <h2 class="text-3xl font-bold mb-6">À propos de moi</h2>
+                <p class="text-gray-700 dark:text-gray-300">
+                    Ingénieur DevOps/SRE autodidacte, parlant arabe, anglais et français. Mon objectif de carrière est d'évoluer vers un poste senior ou de leader d'équipe, afin de pouvoir accompagner et former d'autres personnes tout en participant aux décisions stratégiques. Je m'épanouis dans des environnements favorisant l'apprentissage continu, la croissance technique et la résolution de problèmes concrets. J'accorde une grande importance à la communication claire, au travail d'équipe et j'apprécie les rôles où je peux soutenir les autres et prendre des initiatives. Je souhaite contribuer à des projets ayant un impact positif.
+                </p>
+                <div class="mt-4 flex items-center">
+                    <img src="https://images.credly.com/size/110x110/images/08096465-cbfc-4c3e-93e5-93c5aa61f23e/image.png" alt="Google Cloud Certified" class="h-16 mr-4">
+                    <span class="text-gray-700 dark:text-gray-300">Google Cloud Certified - Associate Cloud Engineer</span>
+                </div>
+                <div class="mt-4 flex items-center">
+                    <img src="https://images.credly.com/size/110x110/images/572de0ba-2c59-4816-a59d-b0e1687e45ee/image.png" alt="Red Hat Certified System Administrator" class="h-16 mr-4">
+                    <span class="text-gray-700 dark:text-gray-300">Red Hat Certified System Administrator (RHCSA)</span>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6">Expérience Professionnelle</h2>
+                <div class="space-y-6">
+                    <!-- Current Role -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-semibold">Ingénieur DevOps</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Sofrecom Tunisie (Orange Group)</p>
+                                <p class="text-gray-500 dark:text-gray-500">Septembre 2022 - Présent</p>
                             </div>
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                <div class="bg-purple-500 h-2 rounded-full" style="width: 85%"></div>
-                            </div>
+                            <img src="images/sofrecom.png" alt="Sofrecom Logo" class="w-16 h-16 object-contain" onerror="this.style.display='none'">
                         </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="text-gray-700 dark:text-gray-300">Python</span>
-                                <span class="text-gray-600 dark:text-gray-400">80%</span>
+                        <ul class="mt-2 text-gray-700 dark:text-gray-300 list-disc list-inside space-y-2">
+                            <li>Conception d'un workflow CI/CD unifié pour synchroniser les versions des applications sur les plateformes VM héritées et Kubernetes modernes, résolvant ainsi des incohérences critiques de déploiement.</li>
+                            <li>Architecture de solutions de données haute disponibilité, mise en œuvre de la réplication bi-site MongoDB pour minimiser les temps d'arrêt et intégration d'un cluster Redis réduisant les requêtes de base de données de 50%.</li>
+                            <li>Rédaction de playbooks Ansible pour automatiser le provisionnement des serveurs—y compris la configuration du pare-feu, des utilisateurs et du réseau—accélérant ainsi la configuration de nouvelles VM de 80%.</li>
+                            <li>Gestion d'environnements Kubernetes sécurisés et hors ligne et déploiement de solutions de supervision personnalisées pour garantir une haute disponibilité des services.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Previous Role -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-semibold">Ingénieur Logiciel</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Integration Object</p>
+                                <p class="text-gray-500 dark:text-gray-500">Août 2021 - Septembre 2022</p>
                             </div>
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                <div class="bg-purple-500 h-2 rounded-full" style="width: 80%"></div>
-                            </div>
+                            <img src="images/integration-object.png" alt="Integration Object Logo" class="w-16 h-16 object-contain" onerror="this.style.display='none'">
+                        </div>
+                        <ul class="mt-2 text-gray-700 dark:text-gray-300 list-disc list-inside space-y-2">
+                            <li>Initiative de l'automatisation du cycle de publication du logiciel en concevant et en mettant en œuvre des pipelines CI/CD Azure DevOps from scratch, transformant un processus manuel de toute une journée en un système de build entièrement automatisé et à la demande.</li>
+                            <li>Rôle clé dans l'obtention de la certification ISO 27001 en exécutant des contrôles de sécurité critiques, y compris la segmentation du réseau avec des VLAN, la configuration du pare-feu et la remédiation des vulnérabilités basée sur les analyses Nessus.</li>
+                            <li>Développement et maintenance d'applications C#, application des principes SOLID pour un logiciel robuste et évolutif.</li>
+                            <li>Conduite de la migration de TFS vers Azure Repos pour moderniser le système de contrôle de version.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6">Projets Personnels</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Project Card 1 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col">
+                        <h3 class="text-xl font-semibold mb-2">Déploiement Kubernetes de bout en bout</h3>
+                        <p class="text-gray-700 dark:text-gray-300 flex-grow">Création d'une solution d'infrastructure-as-code sans intervention humaine pour démarrer un cluster Kubernetes complet à la demande. Ce projet a automatisé l'ensemble de la configuration de l'environnement pour l'hébergement d'une application e-commerce conteneurisée, éliminant ainsi toute configuration manuelle.</p>
+                        <div class="mt-4">
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Terraform</span>
+                            <span class="inline-block bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-200">Ansible</span>
+                            <span class="inline-block bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-800">Azure DevOps</span>
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Kubernetes</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col">
+                        <h3 class="text-xl font-semibold mb-2">Application Microservices C#</h3>
+                        <p class="text-gray-700 dark:text-gray-300 flex-grow">Développement de deux microservices utilisant .NET qui communiquent via gRPC, REST et RabbitMQ. L'application a été conteneurisée avec Docker et déployée sur un cluster Kubernetes, démontrant un cycle de vie complet des microservices.</p>
+                        <div class="mt-4">
+                            <span class="inline-block bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-800">C# / .NET</span>
+                            <span class="inline-block bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-800">gRPC</span>
+                            <span class="inline-block bg-orange-100 text-orange-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-orange-200 dark:text-orange-800">RabbitMQ</span>
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">Docker</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col">
+                        <h3 class="text-xl font-semibold mb-2">Plateforme e-commerce Full-Stack</h3>
+                        <p class="text-gray-700 dark:text-gray-300 flex-grow">Création d'une plateforme de restaurant en ligne avec des fonctionnalités pour la commande, la navigation des recettes et le suivi des calories via des APIs externes. Le backend a été développé avec Node.js et le frontend avec Angular, y compris l'intégration du paiement avec Stripe.</p>
+                        <div class="mt-4">
+                            <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-800">Node.js</span>
+                            <span class="inline-block bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-800">Angular</span>
+                            <span class="inline-block bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-indigo-200 dark:text-indigo-800">Stripe API</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col">
+                        <h3 class="text-xl font-semibold mb-2">Apprentissage Automatique & Apprentissage Profond</h3>
+                        <p class="text-gray-700 dark:text-gray-300 flex-grow">Développement de plusieurs modèles, y compris un prédicteur de revenus, un prévisionniste de dépenses des consommateurs et un classificateur de poses de yoga utilisant des réseaux de neurones simples, complexes et pré-entraînés. Exploration du multi-threading en Python pour le traitement d'images.</p>
+                        <div class="mt-4">
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-800">Python</span>
+                            <span class="inline-block bg-pink-100 text-pink-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-pink-200 dark:text-pink-800">Scikit-learn</span>
+                            <span class="inline-block bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-200">TensorFlow</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
-            <h2 class="text-3xl font-bold mb-6">Contact Me</h2>
-            <form class="space-y-4" novalidate>
-                <!-- <input type="email" placeholder="Email Address" required 
-                    class="w-full p-3 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"> -->
-                <input type="text" placeholder="Object" required 
-                    class="w-full p-3 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                <textarea placeholder="Your Message" required rows="4" 
-                    class="w-full p-3 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
-                <button type="submit" 
-                    class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                    Send Message
-                </button>
-            </form>
-        </section>
+            <!-- Skills Section -->
+            <section id="skills" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6">Compétences Techniques</h2>
+                <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">Cloud & DevOps</h3>
+                            <ul class="space-y-1 text-gray-700 dark:text-gray-300">
+                                <li>GCP, Azure</li>
+                                <li>Docker, Kubernetes, OpenShift</li>
+                                <li>GitLab CI, Jenkins</li>
+                                <li>Terraform, Ansible</li>
+                                <li>Prometheus, Grafana, ELK</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">Développement</h3>
+                            <ul class="space-y-1 text-gray-700 dark:text-gray-300">
+                                <li>C#, .NET, SOLID</li>
+                                <li>Python, YAML</li>
+                                <li>SQL, NoSQL</li>
+                                <li>REST APIs</li>
+                                <li>Shell Scripting</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">Systèmes & Sécurité</h3>
+                            <ul class="space-y-1 text-gray-700 dark:text-gray-300">
+                                <li>RHEL, Linux Admin</li>
+                                <li>vSphere, VMware</li>
+                                <li>Fortinet, Cisco</li>
+                                <li>Nessus, OWASP ZAP</li>
+                                <li>Architecture Réseau</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">Professionnel</h3>
+                            <ul class="space-y-1 text-gray-700 dark:text-gray-300">
+                                <li>Agile, Scrum</li>
+                                <li>Prise de Parole en Public</li>
+                                <li>Gestion du Temps</li>
+                                <li>Leadership d'Équipe</li>
+                                <li>Intelligence Émotionnelle</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certifications Section -->
+            <section id="certifications" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6">Certifications</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex items-center">
+                        <img src="https://images.credly.com/size/110x110/images/08096465-cbfc-4c3e-93e5-93c5aa61f23e/image.png" alt="Google Cloud Certified" class="h-16 mr-4">
+                        <div>
+                            <h3 class="font-semibold">Google Cloud Certified - Associate Cloud Engineer</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Google</p>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex items-center">
+                        <img src="https://images.credly.com/size/110x110/images/572de0ba-2c59-4816-a59d-b0e1687e45ee/image.png" alt="Red Hat Certified System Administrator" class="h-16 mr-4">
+                        <div>
+                            <h3 class="font-semibold">Red Hat Certified System Administrator (RHCSA)</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Red Hat</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hobbies Section -->
+            <section id="hobbies" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 mb-12">
+                <h2 class="text-3xl font-bold mb-6">Loisirs</h2>
+                <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
+                    <li>Lecture</li>
+                    <li>Cinéma</li>
+                    <li>Moments avec amis et famille</li>
+                </ul>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold mb-6">Contact</h2>
+                <div class="mb-4 text-lg text-gray-700 dark:text-gray-300">
+                    <div><i class="fas fa-envelope mr-2"></i> hamza.taoujouti@esprit.tn</div>
+                    <div><i class="fas fa-phone mr-2"></i> +21656228030</div>
+                </div>
+                <form class="space-y-4" novalidate>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2">Votre Email</label>
+                        <input type="email" id="email" class="w-full px-3 py-2 border rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary-dark" required>
+                    </div>
+                    <input type="text" placeholder="Objet" required 
+                        class="w-full p-3 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <textarea placeholder="Votre Message" required rows="4" 
+                        class="w-full p-3 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                    <button type="submit" 
+                        class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                        Envoyer le Message
+                    </button>
+                </form>
+                <a href="cv.pdf" download class="inline-block mt-6 bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    <i class="fas fa-download mr-2"></i>Télécharger le CV
+                </a>
+            </section>
+        </div>
 
         <!-- Footer -->
         <footer class="text-center py-6 text-gray-600 dark:text-gray-400">
@@ -327,5 +555,16 @@
     </div>
 
     <script src="script.js" defer></script>
+    <script>
+        function switchLang(lang) {
+            document.getElementById('content-en').classList.toggle('hidden', lang !== 'en');
+            document.getElementById('content-fr').classList.toggle('hidden', lang !== 'fr');
+            document.getElementById('nav-en').classList.toggle('hidden', lang !== 'en');
+            document.getElementById('nav-fr').classList.toggle('hidden', lang !== 'fr');
+            document.getElementById('lang-en').classList.toggle('text-blue-600', lang === 'en');
+            document.getElementById('lang-fr').classList.toggle('text-blue-600', lang === 'fr');
+        }
+        window.onload = function() { switchLang('en'); }
+    </script>
 </body>
 </html>

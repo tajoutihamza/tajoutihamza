@@ -18,7 +18,6 @@ const CONFIG = {
     selectors: {
         darkModeToggle: '#darkModeToggle',
         headline: '#typed-headline',
-        flipCard: '.flip-card',
         contactForm: '#contact form'
     },
     classes: {
@@ -51,7 +50,6 @@ class PortfolioApp {
     init() {
         this.initDarkMode();
         this.initTypingEffect();
-        this.initFlipCards();
         this.initContactForm();
     }
 
@@ -120,34 +118,6 @@ class PortfolioApp {
         };
 
         requestAnimationFrame(type);
-    }
-
-    // Flip Cards functionality
-    initFlipCards() {
-        const flipCards = document.querySelectorAll(CONFIG.selectors.flipCard);
-        
-        flipCards.forEach(card => {
-            const inner = card.querySelector('.flip-card-inner');
-            if (!inner) return;
-
-            const handleFlip = () => {
-                inner.style.transform = inner.style.transform === 'rotateY(180deg)' ? '' : 'rotateY(180deg)';
-            };
-
-            // Add both click and keyboard support
-            card.addEventListener('click', handleFlip);
-            card.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    handleFlip();
-                }
-            });
-
-            // Add accessibility attributes
-            card.setAttribute('role', 'button');
-            card.setAttribute('tabindex', '0');
-            card.setAttribute('aria-label', 'Flip card to see more details');
-        });
     }
 
     // Contact form functionality
